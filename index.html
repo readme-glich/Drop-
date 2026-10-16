@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,15 +7,15 @@
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #58a6ff;
-            --gradient-start: #8a2387;
-            --gradient-mid: #e94057;
-            --gradient-end: #f27121;
+            --bg-color: #1e1e24;
+            --card-bg: #25252b;
+            --accent-color: #ff5722;
+            --accent-hover: #f4511e;
+            --gradient-start: #ff8a65;
+            --gradient-end: #ff5722;
             --text-main: #c9d1d9;
             --text-light: #f0f6fc;
-            --border-color: #30363d;
+            --border-color: #383842;
         }
 
         * {
@@ -48,7 +47,7 @@
         .logo-area {
             font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
@@ -57,7 +56,7 @@
         }
 
         .badge {
-            background-color: #238636;
+            background-color: var(--accent-color);
             color: white;
             padding: 4px 10px;
             border-radius: 20px;
@@ -65,6 +64,7 @@
             vertical-align: middle;
             margin-left: 10px;
             font-weight: 600;
+            -webkit-text-fill-color: initial;
         }
 
         header h1 {
@@ -75,7 +75,7 @@
 
         header .subtitle {
             font-size: 1.2rem;
-            color: #8b949e;
+            color: #9aa2ab;
             max-width: 600px;
             margin: 0 auto 30px;
         }
@@ -92,9 +92,9 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -102,15 +102,16 @@
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            background-color: var(--accent-color);
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+            background-color: var(--accent-hover);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5);
         }
 
         .btn-secondary {
@@ -120,8 +121,79 @@
         }
 
         .btn-secondary:hover {
-            background-color: #21262d;
-            border-color: #8b949e;
+            background-color: #2d2d35;
+            border-color: #9aa2ab;
+        }
+
+        /* AI badge styling */
+        .ai-badge {
+            background: linear-gradient(90deg, #ff7043, #ff5722);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Interactive Showcase / Screenshots */
+        .showcase-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .screenshot-viewer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .screenshot-display {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+
+        .screenshot-display.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* Main Content Grid */
@@ -151,7 +223,7 @@
         }
 
         .card:hover {
-            border-color: #444c56;
+            border-color: #4e4e5a;
         }
 
         .card h3 {
@@ -168,13 +240,13 @@
 
         .card p {
             font-size: 0.95rem;
-            color: #8b949e;
+            color: #9aa2ab;
         }
 
         /* Info Banner */
         .banner {
-            background-color: rgba(240, 185, 11, 0.1);
-            border: 1px solid rgba(240, 185, 11, 0.3);
+            background-color: rgba(255, 87, 34, 0.05);
+            border: 1px solid rgba(255, 87, 34, 0.2);
             border-radius: 8px;
             padding: 20px;
             margin-top: 30px;
@@ -183,13 +255,13 @@
         }
 
         .banner i {
-            color: #e3b341;
+            color: var(--accent-color);
             font-size: 1.5rem;
             margin-top: 3px;
         }
 
         .banner-content h4 {
-            color: #e3b341;
+            color: var(--text-light);
             margin-bottom: 5px;
         }
 
@@ -201,7 +273,7 @@
         }
 
         .tag {
-            background-color: #21262d;
+            background-color: #2d2d35;
             border: 1px solid var(--border-color);
             padding: 6px 14px;
             border-radius: 20px;
@@ -217,7 +289,7 @@
             margin-top: 60px;
             text-align: center;
             font-size: 0.85rem;
-            color: #8b949e;
+            color: #9aa2ab;
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
         }
@@ -229,17 +301,6 @@
 
         footer a:hover {
             text-decoration: underline;
-        }
-
-        /* AI badge styling */
-        .ai-badge {
-            background: linear-gradient(90deg, #a855f7, #6366f1);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 500;
         }
 
         @media (max-width: 600px) {
@@ -259,59 +320,25 @@
         <p class="subtitle">Легковесное и быстрое приложение на Python для Windows. Раздавайте файлы в один клик через приложение или обычный браузер.</p>
         
         <div class="cta-buttons">
-            <!-- Замените '#' на прямую ссылку для скачивания (например, на ваш .exe или .zip в релизах GitHub) -->
-            <a href="#" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать для Windows</a>
-            <!-- Замените '#' на ссылку на ваш репозиторий GitHub -->
-            <a href="#" class="btn btn-secondary"><i class="fa-brands fa-github"></i> Исходный код</a>
+            <!-- Ссылка на скачивание msi пакета -->
+            <a href="https://github.com/readme-glich/Drop-/releases/download/drop/Drop.back.msi" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать Drop.back.msi</a>
+            <!-- Ссылка на сам репозиторий -->
+            <a href="https://github.com/readme-glich/Drop-" class="btn btn-secondary"><i class="fa-brands fa-github"></i> Исходный код GitHub</a>
         </div>
     </header>
 
     <!-- AI Info -->
     <div class="ai-badge">
-        <i class="fa-solid fa-robot"></i> Код приложения сгенерирован ИИ и успешно протестирован на ПК разработчика.
+        <i class="fa-solid fa-robot"></i> Код приложения сгенерирован искусственным интеллектом (AI) и успешно протестирован локально.
     </div>
 
-    <!-- Features -->
-    <h2 class="section-title"><i class="fa-solid fa-star"></i> Основные возможности</h2>
-    <div class="grid">
-        <div class="card">
-            <h3><i class="fa-solid fa-network-wired"></i> Два режима раздачи</h3>
-            <p><strong>Прямая передача:</strong> TCP через приложение на ПК с DropΩ.<br><strong>HTTP-раздача:</strong> скачивание любым устройством через обычный браузер.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fa-solid fa-magnifying-glass"></i> Гибкий поиск</h3>
-            <p>Автоматическое обнаружение отправителя по заданному порту или ручной ввод IP-адреса и порта для точного соединения.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fa-solid fa-sliders"></i> Кастомизация порта</h3>
-            <p>Возможность вручную назначить рабочий порт передачи прямо перед запуском сессии (по умолчанию используется порт 5000).</p>
-        </div>
-        <div class="card">
-            <h3><i class="fa-solid fa-folder-open"></i> Путь сохранения</h3>
-            <p>Удобная настройка папки для приема файлов прямо в графическом интерфейсе приложения.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fa-solid fa-palette"></i> Темы оформления</h3>
-            <p>Интерфейс поддерживает светлую, темную, а также системную тему для комфортной работы в любое время суток.</p>
-        </div>
-    </div>
-
-    <!-- Tech Stack -->
-    <h2 class="section-title"><i class="fa-solid fa-code"></i> Стек технологий</h2>
-    <div class="tags">
-        <div class="tag"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python</div>
-        <div class="tag"><i class="fa-brands fa-windows" style="color: #0078D4;"></i> Windows</div>
-        <div class="tag"><i class="fa-solid fa-server"></i> TCP / HTTP Protocols</div>
-    </div>
-
-    <!-- Important Note -->
-    <div class="banner">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        <div class="banner-content">
-            <h4>Важная информация</h4>
-            <p>Для успешной отправки и получения файлов устройства должны находиться в <strong>одной локальной сети</strong> (быть подключены к одному Wi-Fi роутеру или соединены сетевым кабелем). При первом запуске обязательно разрешите приложению доступ в сеть в брандмауэре Windows.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
+    <!-- Interface Showcase -->
+    <h2 class="section-title"><i class="fa-solid fa-desktop"></i> Интерфейс приложения</h2>
+    <div class="showcase-container">
+        <div class="screenshot-viewer">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchScreenshot(0)">Главное меню</button>
+                <button class="tab-btn" onclick="switchScreenshot(1)">Режим отправки</button>
+                <button class="tab-btn" onclick="switchScreenshot(2)">Режим получения</button>
+            </div>
+            
