@@ -1,1 +1,317 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropΩ 🚀 | Build 3 — Обмен файлами в локальной сети</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #58a6ff;
+            --gradient-start: #8a2387;
+            --gradient-mid: #e94057;
+            --gradient-end: #f27121;
+            --text-main: #c9d1d9;
+            --text-light: #f0f6fc;
+            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .logo-area {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .badge {
+            background-color: #238636;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            vertical-align: middle;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Action Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #21262d;
+            border-color: #8b949e;
+        }
+
+        /* Main Content Grid */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin: 40px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            transition: border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #444c56;
+        }
+
+        .card h3 {
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--accent-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #8b949e;
+        }
+
+        /* Info Banner */
+        .banner {
+            background-color: rgba(240, 185, 11, 0.1);
+            border: 1px solid rgba(240, 185, 11, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .banner i {
+            color: #e3b341;
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .banner-content h4 {
+            color: #e3b341;
+            margin-bottom: 5px;
+        }
+
+        /* Tech Stack Tags */
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #21262d;
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8b949e;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* AI badge styling */
+        .ai-badge {
+            background: linear-gradient(90deg, #a855f7, #6366f1);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .logo-area { font-size: 3rem; }
+            header h1 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Section -->
+    <header>
+        <div class="logo-area">DropΩ <span class="badge">Build 3</span></div>
+        <h1>Удобный обмен файлами в локальной сети</h1>
+        <p class="subtitle">Легковесное и быстрое приложение на Python для Windows. Раздавайте файлы в один клик через приложение или обычный браузер.</p>
+        
+        <div class="cta-buttons">
+            <!-- Замените '#' на прямую ссылку для скачивания (например, на ваш .exe или .zip в релизах GitHub) -->
+            <a href="#" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать для Windows</a>
+            <!-- Замените '#' на ссылку на ваш репозиторий GitHub -->
+            <a href="#" class="btn btn-secondary"><i class="fa-brands fa-github"></i> Исходный код</a>
+        </div>
+    </header>
+
+    <!-- AI Info -->
+    <div class="ai-badge">
+        <i class="fa-solid fa-robot"></i> Код приложения сгенерирован ИИ и успешно протестирован на ПК разработчика.
+    </div>
+
+    <!-- Features -->
+    <h2 class="section-title"><i class="fa-solid fa-star"></i> Основные возможности</h2>
+    <div class="grid">
+        <div class="card">
+            <h3><i class="fa-solid fa-network-wired"></i> Два режима раздачи</h3>
+            <p><strong>Прямая передача:</strong> TCP через приложение на ПК с DropΩ.<br><strong>HTTP-раздача:</strong> скачивание любым устройством через обычный браузер.</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Гибкий поиск</h3>
+            <p>Автоматическое обнаружение отправителя по заданному порту или ручной ввод IP-адреса и порта для точного соединения.</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-sliders"></i> Кастомизация порта</h3>
+            <p>Возможность вручную назначить рабочий порт передачи прямо перед запуском сессии (по умолчанию используется порт 5000).</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-folder-open"></i> Путь сохранения</h3>
+            <p>Удобная настройка папки для приема файлов прямо в графическом интерфейсе приложения.</p>
+        </div>
+        <div class="card">
+            <h3><i class="fa-solid fa-palette"></i> Темы оформления</h3>
+            <p>Интерфейс поддерживает светлую, темную, а также системную тему для комфортной работы в любое время суток.</p>
+        </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <h2 class="section-title"><i class="fa-solid fa-code"></i> Стек технологий</h2>
+    <div class="tags">
+        <div class="tag"><i class="fa-brands fa-python" style="color: #3776AB;"></i> Python</div>
+        <div class="tag"><i class="fa-brands fa-windows" style="color: #0078D4;"></i> Windows</div>
+        <div class="tag"><i class="fa-solid fa-server"></i> TCP / HTTP Protocols</div>
+    </div>
+
+    <!-- Important Note -->
+    <div class="banner">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div class="banner-content">
+            <h4>Важная информация</h4>
+            <p>Для успешной отправки и получения файлов устройства должны находиться в <strong>одной локальной сети</strong> (быть подключены к одному Wi-Fi роутеру или соединены сетевым кабелем). При первом запуске обязательно разрешите приложению доступ в сеть в брандмауэре Windows.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
