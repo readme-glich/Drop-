@@ -31,7 +31,7 @@
 ---
 
 ## 🎨 Источники графики
-* Иконка приложения и графические элементы: автор [hidemaru](https://www.flaticon.com/authors/hidemaru) с платформы Flaticon.
+* Иконка приложения:[hidemaru](https://www.flaticon.com/authors/hidemaru)
 
 ---
 
