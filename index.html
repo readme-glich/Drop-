@@ -129,6 +129,10 @@ body {
   height: auto;
   display: block; /* убирает лишний отступ снизу от строчного элемента */
 }
+html {
+  scroll-behavior: smooth;
+}
+
         
     </style>
     <style>
@@ -238,7 +242,7 @@ body {
         <p>по локальной сети</p>
         <div class="cta-buttons">
             <!-- Ссылка на скачивание msi пакета -->
-            <a href="https://github.com/readme-glich/Drop-/releases/download/drop/Drop.msi" class="btn btn-primary"><i class="fa-solid fa-download" aria-label="скачать приложение ДЛЯ WINDOWS"></i> Скачать Drop.msi</a>
+            <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download" aria-label="скачать приложение ДЛЯ WINDOWS"></i> Скачать Drop.msi</a>
             <!-- Ссылка на сам репозиторий -->
              <!--<a href="https://github.com/readme-glich/Drop-/releases/download/drop/Drop.msi" class="btn trot btn-tprimar"><i class="fa-solid fa-download" aria-label="скачать приложение ДЛЯ WINDOWS на dart"></i> Скачать Drop на dart</a>-->
                 <p></p>
@@ -258,7 +262,7 @@ body {
         <img src="version.webp" class="img" alt="версии">
         <p>drop прошёл через много этапов  смены библиотек,
              языков програмирований и голобальной смены дизайна</p>
-
+        <p>Скачать Drop</p>
             <table class="ms-table">
     <thead>
         <tr>
@@ -278,7 +282,8 @@ body {
             <td>
                 <div class="download-links">
                     <a href="https://github.com/readme-glich/Drop-/releases/download/drop4/Drop4.0.0py.msi" class="version-link">Installer (.msi)</a><br>
-                    <a href="https://github.com/readme-glich/Drop-/releases/download/drop4/build4py.zip" class="version-link">Portable (.zip)</a>
+                    <a id="download" href="https://github.com/readme-glich/Drop-/releases/download/drop4/build4py.zip" class="version-link">Portable (.zip)</a>
+                
                 </div>
             </td>
         </tr>
@@ -287,6 +292,7 @@ body {
             <td>
                 <ul>
                     <li>на dart</li>
+                    <li>(разница dart и python лиш в дизайне)</li>
                 </ul>
             </td>
             <td>
