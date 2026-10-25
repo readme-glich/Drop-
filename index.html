@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop 4</title>
+    <meta name="description" content="DropΩ — это приложение для обмена файлами по локальной сети скачать бесплатно">
+    <link rel="icon"  type="" href="flaicon.svg">
+    <!--
+    <style>
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color:#1a1a1a;
+            color: aliceblue;
+        }
+        
+        
+
+        }
+    </style>-->
+    <style>
+        lement.style {
+}
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+    text-align: center;
+}
+.btn-tprimar {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(34, 104, 255, 0.3);
+    text-align: center;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+}
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    text-align: center;
+}
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #25252b;
+    --accent-color: #ff5722;
+    --accent-hover: #f4511e;
+    --gradient-start: #ff8a65;
+    --gradient-end: #ff5722;
+    --text-main: #c9d1d9;
+    --text-light: #f0f6fc;
+    --border-color: #383842;
+    text-align: center;
+}
+.trot {
+    --bg-color: #1a1a1a;
+    --card-bg: #25252b;
+    --accent-color: #2282ff;
+    --accent-hover: #1e9ef4;
+    --gradient-start: #65b5ff;
+    --gradient-end: #229cff;
+    --text-main: #c9d1d9;
+    --text-light: #f0f6fc;
+    --border-color: #383842;
+    text-align: center;
+}
+.backr1 {
+            background-image:url(backround.webp);
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 785px;
+            background-size: cover;
+            text-align: center;
+
+        }
+        h1 {
+            text-align: center;
+            font-size: 4rem;
+        }
+        p {
+            font-size:2rem;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1px;
+        }
+
+
+        .btn-secondary:hover {
+            background-color: #2d2d35;
+            border-color: #9aa2ab;
+        }
+        .img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* убирает лишний отступ снизу от строчного элемента */
+}
+        
+    </style>
+    <style>
+        /* Базовые стили Microsoft (Segoe UI) */
+         .backr1{
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #fffefe;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto; /* Адаптивность для мобильных */
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111111;
+        }
+
+        /* Стилизация таблицы */
+        .ms-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: left;
+        }
+
+        /* Шапка таблицы */
+        .ms-table th {
+            background-color: #f3f2f1; /* Фирменный светло-серый фон MS */
+            color: #242424;
+            font-weight: 600;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Ячейки тела таблицы */
+        .ms-table td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0; /* Очень тонкая разделяющая линия */
+            vertical-align: top;
+        }
+
+        /* Эффект наведения на строку */
+        .ms-table tbody tr:hover {
+            background-color: #faf9f8;
+        }
+
+        /* Стили для номеров версий и ссылок */
+        .version-link {
+            color: #0078d4; /* Синий цвет Microsoft */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .version-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Бейджи статусов (Поддерживается / Поддержка завершена) */
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-supported {
+            background-color: #dff6dd;
+            color: #107c41; /* Зеленый */
+        }
+
+        .status-eos {
+            background-color: #fde7e9;
+            color: #a80000; /* Красный */
+        }
+
+        /* Стили для списков изменений внутри ячейки */
+        .ms-table ul {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .ms-table li {
+            margin-bottom: 4px;
+        }
+        
+        .ms-table li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="backr1" >
+        <h1><img src="flaicon.webp" style="height: 62px;" alt="icon">DropΩ</h1>
+    
+        <p>DropΩ — это приложение </p>
+        <p> для обмена файлами  </p>
+        <p>по локальной сети</p>
+        <div class="cta-buttons">
+            <!-- Ссылка на скачивание msi пакета -->
+            <a href="https://github.com/readme-glich/Drop-/releases/download/drop/Drop.msi" class="btn btn-primary"><i class="fa-solid fa-download" aria-label="скачать приложение ДЛЯ WINDOWS"></i> Скачать Drop.msi</a>
+            <!-- Ссылка на сам репозиторий -->
+             <a href="https://github.com/readme-glich/Drop-/releases/download/drop/Drop.msi" class="btn trot btn-tprimar"><i class="fa-solid fa-download" aria-label="скачать приложение ДЛЯ WINDOWS на dart"></i> Скачать Drop на dart</a>
+                <p></p>
+             <a target="_blank" href="https://github.com/readme-glich/Drop-" class="btn btn-secondary" aria-label="поддержать в github" style="color: #ffff;"><i  ></i> поддержите нас на GitHub</a>
+            
+            <a target="_blank" href="https://boosty.to/readmeddev" class="btn btn-secondary" aria-label="поддержать в github" style="color: #ffff;"><i  ></i> поддержите нас на boosty</a>
+            
+        </div>
+    </div>
+    
+    <p>DropΩ — это легковесное и быстрое приложение </p>
+        <p> для удобного обмена файлами  </p>
+        <p>в локальной сети между устройствами. </p>
+        <p>Программа позволяет легко раздавать файлы как </p>
+        <p>через встроенный сетевой протокол, </p>
+        <p>так и делиться ими через обычный браузер.</p>
+        <img src="version.webp" class="img" alt="версии">
+        <p>drop прошёл через много этапов  смены библиотек,
+             языков програмирований и голобальной смены дизайна</p>
+
+            <table class="ms-table">
+    <thead>
+        <tr>
+            <th>Версия</th>
+            <th>Особенности</th>
+            <th>Скачать</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>build 4</strong></td>
+            <td>
+                <ul>
+                    <li>на phyton.</li>
+                </ul>
+            </td>
+            <td>
+                <div class="download-links">
+                    <a href="/download/v2.4.0/setup.msi" class="version-link">Installer (.msi)</a><br>
+                    <a href="/download/v2.4.0/portable.zip" class="version-link">Portable (.zip)</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>build 4</strong></td>
+            <td>
+                <ul>
+                    <li>на dart</li>
+                </ul>
+            </td>
+            <td>
+                <div class="download-links">
+                    <a href="/download/v2.3.1/setup.msi" class="version-link">Installer (.msi)</a><br>
+                    <a href="/download/v2.3.1/portable.zip" class="version-link">Portable (.zip)</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>build 4</strong></td>
+            <td>
+                <ul>
+                    <li>на dart.</li>
+                    <li>для других систем.</li>
+                </ul>
+            </td>
+            <td>
+                <div class="download-links">
+                    <a href="/download/v2.2.0/setup.exe" class="version-link">android (.apk)</a><br>
+                    <a href="/download/v2.2.0/setup.msi" class="version-link">linux (.)</a><br>
+                    <a href="/download/v2.2.0/portable.zip" class="version-link">исходный код (.zip)</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+        <a href="https://www.virustotal.com/gui/file/d623afc4a83add536bf534edeb183770dc619fdc10d1325405ee7adea74056e0/detection" aria-label="">проверка msi файла на virustotal</a>
+</body>
+</html>
