@@ -508,12 +508,10 @@ class _SharePageState extends State<SharePage> {
   }
 
   Future<void> _pickFiles() async {
-    final result = await FilePicker.platform.pickFiles(
-      allowMultiple: true,
-      type: FileType.any,
-    );
-    if (result == null) return; // пользователь отменил выбор
-    for (final f in result.files) {
+    // v13: статический метод, возвращает List<PlatformFile>
+    final picked = await FilePicker.pickFiles(type: FileType.any);
+    if (picked.isEmpty) return; // пользователь отменил выбор
+    for (final f in picked) {
       final path = f.path;
       if (path != null && !_files.contains(path)) {
         _files.add(path);
@@ -734,7 +732,8 @@ class _ReceivePageState extends State<ReceivePage> {
   }
 
   Future<void> _pickDir() async {
-    final path = await FilePicker.platform.getDirectoryPath();
+    // v13: статический метод, возвращает String?
+    final path = await FilePicker.getDirectoryPath();
     if (path != null && mounted) {
       setState(() => _saveCtrl.text = path);
     }
