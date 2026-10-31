@@ -1,7 +1,9 @@
 # DropΩ  🚀 | Build 4 на python
-https://readme-glich.github.io/Drop-/
 **DropΩ** — это легковесное и быстрое приложение на **Python** для удобного обмена файлами в локальной сети между устройствами на Windows. Программа позволяет легко раздавать файлы как через встроенный сетевой протокол, так и делиться ими через обычный браузер.
 
+https://sourceforge.net/projects/dropom/
+
+https://readme-glich.github.io/Drop-/
 
 [![Поддержать на Boosty](https://shields.io)](https://boosty.to/readmeddev)
 
